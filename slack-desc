@@ -1,0 +1,11 @@
+nut: NUT - Network UPS Tools (a collection of ups tools)
+nut:
+nut: The Network UPS Tools is a collection of programs which provide a common
+nut: interface for monitoring and administering UPS hardware. It uses a
+nut: layered apporoach to connect all the components. Drivers are provided for
+nut: a wide assortment of equipment. This package includes the tools needed to
+nut: monitor your UPS over the web. It also includes the upsclient library.
+nut:
+nut:
+nut: Packaged by Georgi D. Sotirov <gdsotirov@dir.bg>
+nut:
