@@ -8,7 +8,7 @@
 
 NAME=nut
 VERSION=2.0.4
-BUILD=1
+BUILD=2
 
 cd $TMP
 tar -zxvf $CWD/$NAME-$VERSION.tar.gz
@@ -19,10 +19,15 @@ CFLAGS=$SLKCFLAGS ./configure --build=$ARCH-pc-linux-gnu \
                               --prefix=/usr \
                               --sysconfdir=/etc/ups \
                               --localstatedir=/var/ups \
+                              --with-user=nut \
                               --with-cgi \
                               --with-cgipath=/var/www/$NAME-cgi-bin
+                              --with-statepath=/var/state/ups
 
+# Build everything without snmp
 make
+make cgi
+make usb
 
 PKG="$TMP/package-$NAME"
 mkdir -p $PKG
@@ -31,16 +36,19 @@ make DESTDIR=$PKG install
 make DESTDIR=$PKG install-conf
 make DESTDIR=$PKG install-cgi
 make DESTDIR=$PKG install-cgi-conf
+make DESTDIR=$PKG install-usb
 make DESTDIR=$PKG install-lib
 
 # Manually install hotplug scripts
 install -m 744 -d $PKG/etc/hotplug/usb
-cat $SRC/scripts/hotplug/libhidups.in | sed s/@RUN_AS_USER@/nut/ > $SRC/scripts/hotplug/libhidups
 install -m 755 $SRC/scripts/hotplug/libhidups $PKG/etc/hotplug/usb
 install -m 644 $SRC/scripts/hotplug/libhid.usermap $PKG/etc/hotplug/usb
 install -m 744 -d $PKG/etc/hotplug.d/usb
 install -m 755 $SRC/scripts/hotplug-ng/nut-usbups.hotplug $PKG/etc/hotplug.d/usb
 install -m 644 $SRC/scripts/hotplug-ng/nut-usbups.rules $PKG/etc/hotplug.d/usb
+
+# Manually create state dir
+install -m 700 -d $PKG/var/state/ups
 
 # Prepare the package
 bin_perms $PKG
@@ -54,13 +62,14 @@ install -m 755 -d $PKG/usr/src/slackbuilds/$NAME-$VERSION
 install -m 644 $CWD/slack-desc $PKG/usr/src/slackbuilds/$NAME-$VERSION
 install -m 644 $CWD/$NAME.SlackBuild $PKG/usr/src/slackbuilds/$NAME-$VERSION
 
-# Assemble the package
+# Assemble the package and move it to package dir
 cd $PKG
 PKG_NAME=$NAME-$VERSION-$ARCH-$BUILD$MYIN
 makepkg -l y -c n ../$PKG_NAME.tgz
 cd $TMP
 md5sum $PKG_NAME.tgz > $PKG_NAME.tgz.md5
 cat $PKG/install/slack-desc > $PKG_NAME.txt
+mv $PKG_NAME* $PKG_DIR
 
 # Clean Up
 if [ "$1" == "--clean" ]; then
