@@ -8,7 +8,7 @@
 
 NAME=nut
 VERSION=2.0.4
-BUILD=2
+BUILD=1
 
 cd $TMP
 tar -zxvf $CWD/$NAME-$VERSION.tar.gz
@@ -72,7 +72,7 @@ cat $PKG/install/slack-desc > $PKG_NAME.txt
 mv $PKG_NAME* $PKG_DIR
 
 # Clean Up
-if [ "$1" == "--clean" ]; then
+if [ "$1" == "--cleanup" ]; then
   rm -r $SRC
   rm -r $PKG
 fi
