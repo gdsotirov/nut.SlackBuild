@@ -7,7 +7,7 @@
 . /etc/slack-package.conf
 
 NAME=nut
-VERSION=2.0.4
+VERSION=2.0.5
 BUILD=1
 
 cd $TMP
@@ -19,10 +19,13 @@ CFLAGS=$SLKCFLAGS ./configure --build=$ARCH-pc-linux-gnu \
                               --prefix=/usr \
                               --sysconfdir=/etc/ups \
                               --localstatedir=/var/ups \
+			      --datarootdir=/usr \
                               --with-user=nut \
                               --with-cgi \
-                              --with-cgipath=/var/www/$NAME-cgi-bin
-                              --with-statepath=/var/state/ups
+                              --with-cgipath=/var/www/$NAME-cgi-bin \
+			      --with-htmlpath=/var/www/nut \
+                              --with-statepath=/var/state/ups \
+			      --enable-strip
 
 # Build everything without snmp
 make
@@ -53,6 +56,7 @@ install -m 700 -d $PKG/var/state/ups
 # Prepare the package
 bin_perms $PKG
 sbin_perms $PKG
+( cd $PKG; strip_bin; strip_lib )
 gzip_man $PKG
 create_docs $PKG $NAME-$VERSION
 
