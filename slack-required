@@ -1,0 +1,20 @@
+dbus >= 1.0.2
+dbus-glib >= 0.73
+expat >= 2.0.1
+fontconfig >= 2.4.2
+freetype >= 2.3.4
+gd >= 2.0.35
+glib2 >= 2.12.12
+glibc-solibs >= 2.5
+hal >= 0.5.9.1
+libX11 >= 1.1.1
+libXau >= 1.0.3
+libXdmcp >= 1.0.2
+libXpm >= 3.5.6
+libjpeg >= 6b
+libpng >= 1.2.18
+libusb >= 0.1.12
+libxcb >= 1.0
+net-snmp >= 5.4
+openssl >= 0.9.8e | openssl-solibs >= 0.9.8e
+zlib >= 1.2.3
