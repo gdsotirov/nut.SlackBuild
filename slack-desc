@@ -3,9 +3,10 @@ nut:
 nut: The Network UPS Tools is a collection of programs which provide a common
 nut: interface for monitoring and administering UPS hardware. It uses a
 nut: layered apporoach to connect all the components. Drivers are provided for
-nut: a wide assortment of equipment. This package includes the tools needed to
-nut: monitor your UPS over the web. It also includes the upsclient library.
-nut:
+nut: a wide assortment of equipment. The primary goal of the NUT project is to
+nut: provide reliable monitoring of UPS hardware and ensure safe shutdowns of
+nut: the systems which are connected.
+nut: This package includes the tools needed to monitor your UPS over the web
+nut: and it also includes the upsclient library.
 nut:
 nut: Packaged by Georgi D. Sotirov <gdsotirov@dir.bg>
-nut:
