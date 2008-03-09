@@ -7,7 +7,7 @@
 . ../slack-package.conf
 
 NAME=nut
-VERSION=2.2.0
+VERSION=2.2.1
 BUILD=1
 ARCH=${ARCH:-i486}
 
