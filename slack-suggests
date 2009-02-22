@@ -1,0 +1,11 @@
+fontconfig >= 2.4.2
+freetype >= 2.3.4
+gd >= 2.0.35
+libX11 >= 1.1.5
+libXau >= 1.0.4
+libXdmcp >= 1.0.2
+libXpm >= 3.5.7
+libjpeg >= 6b
+libpng >= 1.2.32
+libxcb >= 1.1
+powerman >= 2.3.4
