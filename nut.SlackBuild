@@ -7,7 +7,7 @@
 . ../slack-package.conf
 
 NAME=nut
-VERSION=2.2.2
+VERSION=2.4.1
 BUILD=1
 ARCH=${ARCH:-i486}
 
@@ -51,6 +51,11 @@ make DESTDIR=$PKG install || exit 3
 # Manually create state dir
 install -m 700 -d $PKG/var/state/ups
 
+# Install bash completion
+install -m 755 -d $PKG/etc/bash_completion.d
+install -m 644 $SRC/scripts/misc/nut.bash_completion \
+               $PKG/etc/bash_completion.d/nut.bash_completion
+
 # Prepare the package
 bin_perms $PKG
 sbin_perms $PKG
@@ -61,10 +66,12 @@ create_docs $PKG $NAME-$VERSION
 install -m 755 -d $PKG/install
 install -m 644 $CWD/slack-desc     $PKG/install/slack-desc
 install -m 644 $CWD/slack-required $PKG/install/slack-required
+install -m 644 $CWD/slack-suggests $PKG/install/slack-suggests
 
 install -m 755 -d $PKG/usr/src/slackbuilds/$NAME-$VERSION
-install -m 644 $CWD/slack-desc     $PKG/usr/src/slackbuilds/$NAME-$VERSION/slack-desc
-install -m 644 $CWD/slack-required $PKG/usr/src/slackbuilds/$NAME-$VERSION/slack-required
+install -m 644 $CWD/slack-desc       $PKG/usr/src/slackbuilds/$NAME-$VERSION/slack-desc
+install -m 644 $CWD/slack-required   $PKG/usr/src/slackbuilds/$NAME-$VERSION/slack-required
+install -m 644 $CWD/slack-suggests   $PKG/usr/src/slackbuilds/$NAME-$VERSION/slack-suggests
 install -m 644 $CWD/$NAME.SlackBuild $PKG/usr/src/slackbuilds/$NAME-$VERSION/$NAME.SlackBuild
 
 # Assemble the package in the package dir
