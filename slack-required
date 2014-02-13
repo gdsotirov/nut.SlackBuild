@@ -1,12 +1,6 @@
-dbus >= 1.2.6
-dbus-glib >= 0.78
-e2fsprogs >= 1.41.3
-expat >= 2.0.1
-glib2 >= 2.16.6
-glibc-solibs >= 2.7
-hal >= 0.5.11
-libusb >= 0.1.12
-neon >= 0.28.3
-net-snmp >= 5.4.2.1
-openssl >= 0.9.8i | openssl-solibs >= 0.9.8i
+glibc-solibs >= 2.11.1
+libusb >= 1.0.6
+neon >= 0.29
+net-snmp >= 5.5
+openssl >= 0.9.8y | openssl-solibs >= 0.9.8y
 zlib >= 1.2.3
