@@ -1,5 +1,4 @@
 bzip2 >= 1.0.6
-expat >= 2.0.1
 fontconfig >= 2.8.0
 freetype >= 2.4.11
 gd >= 2.0.35
