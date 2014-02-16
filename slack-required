@@ -1,4 +1,9 @@
+expat >= 2.0.1
+freeipmi >= 1.1.7
 glibc-solibs >= 2.11.1
+libgcrypt >= 1.4.5
+libgpg-error >= 1.7
+libtool >= 2.2.6b
 libusb >= 1.0.6
 neon >= 0.29
 net-snmp >= 5.5
