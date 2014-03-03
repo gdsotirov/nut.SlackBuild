@@ -19,13 +19,13 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: nut.SlackBuild,v 1.12 2014/03/02 09:35:55 gsotirov Exp $
+# $Id: nut.SlackBuild,v 1.13 2014/03/03 13:27:50 gsotirov Exp $
 #
 
 . ../../slack-package.conf
 
 NAME=nut
-VERSION=2.6.5
+VERSION=2.7.1
 BUILD=${BUILD:-1}
 
 TMP=${TMP:-/tmp}
