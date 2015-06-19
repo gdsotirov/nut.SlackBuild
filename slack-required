@@ -1,14 +1,14 @@
-cxxlibs >= 6.0.17 | gcc-g++ >= 4.7.1
-expat >= 2.0.1
-freeipmi >= 1.2
-gcc >= 4.7.1
-glibc-solibs >= 2.15
+cxxlibs >= 6.0.18 | gcc-g++ >= 4.8.2
+expat >= 2.1.0
+freeipmi >= 1.4.8
+gcc >= 4.8.2
+glibc-solibs >= 2.17
 libgcrypt >= 1.5.3
 libgpg-error >= 1.11
 libtool >= 2.4.2
 libusb >= 1.0.9
 libusb-compat >= 0.1.4
-neon >= 0.29
-net-snmp >= 5.6
+neon >= 0.29.6
+net-snmp >= 5.7.2
 openssl >= 1.0.1e | openssl-solibs >= 1.0.1e
-zlib >= 1.2.6
+zlib >= 1.2.8
