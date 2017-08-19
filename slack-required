@@ -1,6 +1,6 @@
 eudev >= 3.1.5
 expat >= 2.1.0
-freeipmi >= 1.5.3
+freeipmi >= 1.5.7
 gcc >= 5.3.0
 gcc-g++ >= 5.3.0
 glibc-solibs >= 2.23
