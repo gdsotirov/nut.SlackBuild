@@ -9,4 +9,4 @@ nut: and ensure safe shutdowns of the systems which are connected.
 nut: This package includes the tools needed to monitor your UPS over the
 nut: web and it also includes the upsclient library.
 nut:
-nut: Packaged by Georgi D. Sotirov <gdsotirov@dir.bg>
+nut: Packaged by Georgi D. Sotirov <gdsotirov@gmail.com>
