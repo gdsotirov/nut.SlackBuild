@@ -34,13 +34,13 @@ if [ ! -e $TMP ]; then
   mkdir --parents $TMP # location to build the source
 fi
 
-SRC=$TMP/$NAME-$VERSION
+SRC=$TMP/${NAME}-${VERSION}
 if [ -e $SRC -a -d $SRC ]; then
   echo "Source directory '$SRC' already exists! Plaese, move it or remove it."
   exit 1
 fi
 
-PKG=$TMP/package-$NAME
+PKG=$TMP/package-${NAME}
 if [ -e $PKG -a -d $PKG ]; then
   echo "Package creation directory '$PKG' already exists! Please, move it or remove it."
   exit 2
@@ -49,7 +49,7 @@ mkdir --parents $PKG
 
 # Extract the source
 cd $TMP
-tar --extract --verbose --file=$CWD/$NAME-$VERSION.tar.gz || exit 3
+tar --extract --verbose --file=$CWD/${NAME}-${VERSION}.tar.gz || exit 3
 cd $SRC
 fix_source
 
@@ -71,8 +71,8 @@ CXXFLAGS="$SLKCFLAGS" \
             --with-ssl \
             --with-user=nut \
             --with-group=nut \
-            --with-cgipath=/var/www/$NAME-cgi-bin \
-            --with-htmlpath=/var/www/$NAME \
+            --with-cgipath=/var/www/${NAME}-cgi-bin \
+            --with-htmlpath=/var/www/${NAME} \
             --with-statepath=/var/state/ups || exit 4
 
 # Build & install
@@ -84,32 +84,40 @@ install --mode 700 --directory $PKG/var/state/ups
 
 # Install bash completion
 install --mode 755 --directory $PKG/etc/bash_completion.d
-install --mode 644 $SRC/scripts/misc/nut.bash_completion \
-               $PKG/etc/bash_completion.d/nut.bash_completion
+install --mode 644 --preserve-timestamps \
+        $SRC/scripts/misc/nut.bash_completion \
+        $PKG/etc/bash_completion.d/nut.bash_completion
 
 # Prepare the package
 bin_perms $PKG
 sbin_perms $PKG
 ( cd $PKG; strip_bin; strip_lib )
 gzip_man $PKG
-create_docs $PKG $NAME-$VERSION
+create_docs $PKG ${NAME}-${VERSION}
 
 install --mode 755 --directory $PKG/install
-install --mode 644 $CWD/slack-desc     $PKG/install/slack-desc
-install --mode 644 $CWD/slack-required $PKG/install/slack-required
-install --mode 644 $CWD/slack-suggests $PKG/install/slack-suggests
+install --mode 644 --preserve-timestamps \
+        $CWD/slack-desc     $PKG/install/slack-desc
+install --mode 644 --preserve-timestamps \
+        $CWD/slack-required $PKG/install/slack-required
+install --mode 644 --preserve-timestamps \
+        $CWD/slack-suggests $PKG/install/slack-suggests
 
-SBDIR=$PKG/usr/src/slackbuilds/$NAME-$VERSION
+SBDIR=$PKG/usr/src/slackbuilds/${NAME}-${VERSION}
 install --mode 755 --directory $SBDIR
-install --mode 644 $CWD/slack-desc       $SBDIR/slack-desc
-install --mode 644 $CWD/slack-required   $SBDIR/slack-required
-install --mode 644 $CWD/slack-suggests   $SBDIR/slack-suggests
-install --mode 644 $CWD/$NAME.SlackBuild $SBDIR/$NAME.SlackBuild
+install --mode 644 --preserve-timestamps \
+        $CWD/slack-desc         $SBDIR/slack-desc
+install --mode 644 --preserve-timestamps \
+        $CWD/slack-required     $SBDIR/slack-required
+install --mode 644 --preserve-timestamps \
+        $CWD/slack-suggests     $SBDIR/slack-suggests
+install --mode 644 --preserve-timestamps \
+        $CWD/${NAME}.SlackBuild $SBDIR/${NAME}.SlackBuild
 
 # Assemble the package in the package dir
 cd $PKG
-PKG_NAME=$NAME-$VERSION-$ARCH-$BUILD$MYIN
-makepkg --chown n --linkadd y $PKG_DIR/$PKGNAME.txz
+PKGNAME=${NAME}-${VERSION}-${ARCH}-${BUILD}${MYIN}
+makepkg --chown n --linkadd y $PKG_DIR/${PKGNAME}.txz
 md5sum $PKG_DIR/${PKGNAME}.txz > $PKG_DIR/${PKGNAME}.txz.md5
 install --mode 644 $PKG/install/slack-desc $PKG_DIR/${PKGNAME}.txt
 
