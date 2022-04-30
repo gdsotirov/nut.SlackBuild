@@ -23,7 +23,7 @@
 . ../../slack-package.conf
 
 NAME=nut
-VERSION=2.7.4
+VERSION=2.8.0
 BUILD=${BUILD:-1}
 
 TMP=${TMP:-/tmp}
@@ -56,8 +56,8 @@ fix_source
 # Configure
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS -std=c++14" \
-./configure --build=$ARCH-slackware-linux \
-            --host=$ARCH-slackware-linux \
+./configure --build="$ARCH-slackware-linux" \
+            --host="$ARCH-slackware-linux" \
             --prefix=/usr \
             --libdir=/usr/lib$LIBDIRSUFFIX \
             --sysconfdir=/etc/ups \
@@ -68,6 +68,7 @@ CXXFLAGS="$SLKCFLAGS -std=c++14" \
             --enable-static=no \
             --enable-strip \
             --with-all \
+            --with-linux-i2c=no \
             --with-ssl \
             --with-user=nut \
             --with-group=nut \
