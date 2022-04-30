@@ -1,22 +1,32 @@
 brotli >= 1.0.9
-bzip2 >= 1.0.8 | aaa_libraries >= 15.0
+bzip2 >= 1.0.8
+expat >= 2.4.4
 fontconfig >= 2.13.92
+freeipmi >= 1.6.9
 freetype >= 2.11.1
 gd >= 2.3.3
-glib2 >= 2.70.3 | aaa_libraries >= 15.0
+glib2 >= 2.70.3
 graphite2 >= 1.3.14
 harfbuzz >= 3.2.0
+icu4c >= 69.1
 libX11 >= 1.7.3.1
 libXau >= 1.0.9
 libXdmcp >= 1.1.3
 libXpm >= 3.5.13
-libjpeg-turbo >= 2.1.2 | aaa_libraries >= 15.0
-libpng >= 1.6.37 | aaa_libraries >= 15.0
-libtiff >= 4.3.0 | aaa_libraries >= 15.0
+libgcrypt >= 1.9.4
+libgpg-error >= 1.44
+libjpeg-turbo >= 2.1.2
+libmodbus >= 3.1.7
+libpng >= 1.6.37
+libproxy >= 0.4.17
+libtiff >= 4.3.0
 libwebp >= 1.2.2
 libxcb >= 1.14
 libxml2 >= 2.9.12
-pcre >= 8.45 | aaa_libraries >= 15.0
+neon >= 0.32.2
+net-snmp >= 5.9.1
+pcre >= 8.45
 powerman >= 2.3.27
-xz >= 5.2.5 | aaa_libraries >= 15.0
-zstd >= 1.5.2 | aaa_libraries >= 15.0
+sqlite >= 3.37.2
+xz >= 5.2.5
+zstd >= 1.5.2
