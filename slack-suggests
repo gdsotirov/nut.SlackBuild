@@ -16,7 +16,6 @@ libXpm >= 3.5.13
 libgcrypt >= 1.9.4
 libgpg-error >= 1.44
 libjpeg-turbo >= 2.1.2
-libmodbus >= 3.1.7
 libpng >= 1.6.37
 libproxy >= 0.4.17
 libtiff >= 4.3.0
