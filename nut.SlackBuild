@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # Slackware build script for Network UPS Tools (NUT)
-# Copyright (C) 2006-2023 Georgi D. Sotirov <gdsotirov@gmail.com>
+# Copyright (C) 2006-2024 Georgi D. Sotirov <gdsotirov@gmail.com>
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -23,7 +23,7 @@
 . ../../slack-package.conf
 
 NAME=nut
-VERSION=2.8.1
+VERSION=2.8.2
 BUILD=${BUILD:-1}
 
 TMP=${TMP:-/tmp}
@@ -54,7 +54,9 @@ cd $SRC
 fix_source
 
 # Patch the source
+if [ -e $CWD/${NAME}-${VERSION}.diff ]; then
 patch --backup --strip=1 --suffix=.orig < $CWD/${NAME}-${VERSION}.diff || exit 4
+fi
 
 # Configure
 ./autogen.sh || exit 51
