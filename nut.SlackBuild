@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 # Slackware build script for Network UPS Tools (NUT)
-# Copyright (C) 2006-2024 Georgi D. Sotirov <gdsotirov@gmail.com>
+# Copyright (C) 2006-2025 Georgi D. Sotirov <gdsotirov@gmail.com>
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -23,7 +23,7 @@
 . ../../slack-package.conf
 
 NAME=nut
-VERSION=2.8.2
+VERSION=2.8.3
 BUILD=${BUILD:-1}
 
 TMP=${TMP:-/tmp}
